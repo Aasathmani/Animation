@@ -13,15 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: Duration(seconds: 10),
-    vsync: this,
-  );
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  bool selected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,23 +24,24 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
         ),
         body: Center(
           child: Container(
-            color: Colors.red,
-            child: AnimatedBuilder(
-                animation: _controller,
-                child: Container(
-                  width: 200.0,
-                  height: 200.0,
-                  color: Colors.green,
-                  child: const Center(
-                    child: Text('Whee!'),
-                  ),
+            width: 300,
+            height: 300,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected = !selected;
+                });
+              },
+              child: Center(
+                child: AnimatedContainer(
+                  width: selected ? 200 : 300,
+                  height: selected ? 200 : 300,
+                  color: selected ? Colors.blue : Colors.red,
+                  duration: Duration(seconds: 3),
+                  child: const FlutterLogo(size: 75),
                 ),
-                builder: (BuildContext context, Widget? child) {
-                  return Transform.rotate(
-                    angle: _controller.value * 2.0 * math.pi,
-                    child: child,
-                  );
-                }),
+              ),
+            ),
           ),
         ),
       ),
