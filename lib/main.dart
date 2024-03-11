@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('aasath'),
+          title: const Text('Animated align'),
         ),
         body: Center(
           child: Container(
@@ -30,15 +30,15 @@ class _MyAppState extends State<MyApp> {
                   });
                 },
                 child: Center(
-                  child: Container(
+                  child: SizedBox(
                     height: 250,
                     width: 250,
                     child: AnimatedAlign(
                       alignment:
                           selected ? Alignment.center : Alignment.bottomLeft,
-                      duration: Duration(seconds: 2),
+                      duration: const Duration(seconds: 2),
                       curve: Curves.fastOutSlowIn,
-                      child: FlutterLogo(
+                      child: const FlutterLogo(
                         size: 50,
                       ),
                     ),
