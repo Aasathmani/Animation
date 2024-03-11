@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           title: const Text('Animated Builder'),
         ),
         body: Center(
-          child: Container(
+          child: SizedBox(
             width: 300,
             height: 300,
             child: GestureDetector(
@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
                   width: selected ? 200 : 300,
                   height: selected ? 200 : 300,
                   color: selected ? Colors.blue : Colors.red,
-                  duration: Duration(seconds: 3),
+                  duration: const Duration(seconds: 3),
                   child: const FlutterLogo(size: 75),
                 ),
               ),
