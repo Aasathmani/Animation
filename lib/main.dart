@@ -14,9 +14,9 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
-    duration: Duration(seconds: 10),
+    duration: const Duration(seconds: 5),
     vsync: this,
-  );
+  )..repeat();
   @override
   void dispose() {
     _controller.dispose();
